@@ -1,7 +1,8 @@
 extends Node2D
 
-@onready var tile = load("res://tile.tscn")
-@export var tile_res := 100
+@onready var tile = load("res://Entities/tile.tscn")
+@onready var sand = load("res://Tiles/sand.tres")
+@export var tile_res := Vector2(20,30)
 
 func _input(_event: InputEvent) -> void:
 	#debug to update world
@@ -17,9 +18,9 @@ func generate_map(x, y) -> void:
 	for a in y:
 		for b in x:
 			var new_tile = tile.instantiate()
-			new_tile.tile = load("res://Tiles/sand.tres")
-			new_tile.position.x = b*tile_res
-			new_tile.position.y = a*tile_res
+			new_tile.tile = sand
+			new_tile.position.x = b*tile_res.x
+			new_tile.position.y = a*tile_res.y
 			new_tile.tile.tag = str('tile x:', b, ' y:', a)
 			$Scene.add_child(new_tile)
 

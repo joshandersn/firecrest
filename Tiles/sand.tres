@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ResTile" load_steps=4 format=3 uid="uid://bh8lujrh4bc1m"]
 
-[ext_resource type="Script" path="res://res_tile.gd" id="1_tg3k4"]
+[ext_resource type="Script" path="res://Resources/res_tile.gd" id="1_tg3k4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_fsrq8"]
 

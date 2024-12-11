@@ -21,7 +21,7 @@ tile="bits that make up the world"
 
 [gui]
 
-theme/custom_font="res://PixelifySans.ttf"
+theme/custom_font="res://Assets/PixelifySans.ttf"
 
 [input]
 

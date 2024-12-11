@@ -9,6 +9,4 @@ script = ExtResource("1_y3dp2")
 [node name="Scene" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(389, 255)
-zoom = Vector2(3.45, 3.45)
 script = ExtResource("4_sfet5")
