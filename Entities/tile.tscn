@@ -1,18 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://5nseyxctpxtq"]
 
 [ext_resource type="Script" path="res://Entities/tile.gd" id="1_mcmns"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ul87i"]
+[ext_resource type="Texture2D" uid="uid://n4jwo4bth0qt" path="res://Assets/base.png" id="2_vsyaf"]
 
 [node name="Tile" type="Node2D" groups=["tile"]]
 script = ExtResource("1_mcmns")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-text = "Tile"
-
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = SubResource("NoiseTexture2D_ul87i")
+texture = ExtResource("2_vsyaf")
+centered = false
 region_enabled = true
+region_rect = Rect2(0, 0, 15, 20)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_top = -30.0
+offset_right = 39.0
+theme_override_font_sizes/font_size = 25
+text = "Tile"

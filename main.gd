@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var tile = load("res://Entities/tile.tscn")
 @onready var sand = load("res://Tiles/sand.tres")
-@export var tile_res := Vector2(20,30)
+@export var tile_res := Vector2(15,20)
 
 func _input(_event: InputEvent) -> void:
 	#debug to update world
