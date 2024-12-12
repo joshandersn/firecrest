@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ResTile" load_steps=3 format=3 uid="uid://c8tgn678bcxtm"]
+
+[ext_resource type="Script" path="res://Resources/res_tile.gd" id="1_2gdyj"]
+[ext_resource type="Texture2D" uid="uid://chqv2pbqjpy1j" path="res://Assets/Stone Wall.png" id="2_5rktn"]
+
+[resource]
+script = ExtResource("1_2gdyj")
+tag = "Stone Wall"
+is_wall = true
+texture = ExtResource("2_5rktn")
+temperature = 0
+humidity = 0

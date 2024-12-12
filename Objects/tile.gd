@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var tile: ResTile
+var resident: Node2D
 
 func refresh() -> void:
 	if tile:

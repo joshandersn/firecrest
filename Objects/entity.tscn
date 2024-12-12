@@ -1,29 +1,41 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhokegx1ki0fl"]
 
 [ext_resource type="Script" path="res://Objects/entity.gd" id="1_e7jks"]
-[ext_resource type="Texture2D" uid="uid://dpjuimm75mv51" path="res://Assets/knight.png" id="2_1vi4u"]
+[ext_resource type="Script" path="res://Skills/move.gd" id="3_0mojd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhqge"]
-size = Vector2(15, 20)
+size = Vector2(14, 19)
 
-[node name="Entity" type="Node2D"]
-top_level = true
+[node name="Entity" type="Area2D" groups=["entity"]]
+z_index = 1
 script = ExtResource("1_e7jks")
 
 [node name="Check" type="RayCast2D" parent="."]
 position = Vector2(8, 10)
 target_position = Vector2(0, 20)
+collision_mask = 5
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(8, 10)
-shape = SubResource("RectangleShape2D_rhqge")
-
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_1vi4u")
+z_index = 1
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 15, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_rhqge")
+debug_color = Color(0.672093, 0.508181, 0, 0.42)
+
+[node name="Move" type="Node" parent="."]
+script = ExtResource("3_0mojd")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+modulate = Color(0, 1, 1, 1)
+offset_left = -8.0
+offset_top = -13.0
+offset_right = 24.0
+theme_override_font_sizes/font_size = 10
+text = "player"

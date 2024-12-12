@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ResEntity" load_steps=3 format=3 uid="uid://cmxr3n782is8h"]
+
+[ext_resource type="Texture2D" uid="uid://barpxekvciajs" path="res://Assets/werewolf.png" id="1_8mugo"]
+[ext_resource type="Script" path="res://Resources/res_entity.gd" id="1_v5ojc"]
+
+[resource]
+script = ExtResource("1_v5ojc")
+tag = "Werewolf"
+artwork = ExtResource("1_8mugo")

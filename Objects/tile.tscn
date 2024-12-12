@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://5nseyxctpxtq"]
+[gd_scene load_steps=4 format=3 uid="uid://5nseyxctpxtq"]
 
 [ext_resource type="Script" path="res://Objects/tile.gd" id="1_mcmns"]
 [ext_resource type="Texture2D" uid="uid://n4jwo4bth0qt" path="res://Assets/base.png" id="2_vsyaf"]
 
-[node name="Tile" type="Node2D" groups=["tile"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67yhh"]
+size = Vector2(15, 20)
+
+[node name="Tile" type="Area2D" groups=["tile"]]
+collision_layer = 4
 script = ExtResource("1_mcmns")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -18,3 +22,7 @@ offset_top = -30.0
 offset_right = 39.0
 theme_override_font_sizes/font_size = 25
 text = "Tile"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_67yhh")

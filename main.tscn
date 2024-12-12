@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cymrvhfw8glyc"]
+[gd_scene load_steps=4 format=3 uid="uid://cymrvhfw8glyc"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_y3dp2"]
 [ext_resource type="Script" path="res://game.gd" id="3_7pmk2"]
-[ext_resource type="PackedScene" uid="uid://dhokegx1ki0fl" path="res://Objects/entity.tscn" id="3_xf6om"]
-[ext_resource type="Resource" uid="uid://dadd0pf1s47dg" path="res://Entities/knight.tres" id="4_okolo"]
 [ext_resource type="Script" path="res://camera.gd" id="4_sfet5"]
 
 [node name="Main" type="Node2D"]
@@ -13,9 +11,6 @@ script = ExtResource("1_y3dp2")
 script = ExtResource("3_7pmk2")
 
 [node name="Scene" type="Node2D" parent="."]
-
-[node name="Entity" parent="Scene" instance=ExtResource("3_xf6om")]
-entity = ExtResource("4_okolo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(7, 7)
