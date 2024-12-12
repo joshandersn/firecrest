@@ -10,17 +10,25 @@ extends Node2D
 @onready var slime = load("res://Entities/Slime.tres")
 @onready var knight = load("res://Entities/knight.tres")
 
+var rng = RandomNumberGenerator.new()
+
 func _input(_event: InputEvent) -> void:
 	#debug to update world
 	if Input.is_action_just_pressed("ui_accept"):
-		update_world()
+		#update_world()
+		pass
 
 func update_world() -> void:
+	var count = 0
 	for i in $Scene.get_children():
-		if "refresh" in i:
-			i.refresh()
+		if i.is_in_group("entity") and !i.is_player:
+			if "take_turn" in i:
+				count += 1
+				i.take_turn()
+			if "refresh" in i:
+				i.refresh()
+	print(count, " Objects Updated")
 
-var rng = RandomNumberGenerator.new()
 
 func generate_map(x, y) -> void:
 	for a in y:
@@ -62,12 +70,17 @@ func spawn_player() -> void:
 				new_player.is_player = true
 				new_player.entity = knight
 				new_player.refresh()
+				center_selection(new_player)
 				$Scene.add_child(new_player)
 				break
-			
+
+func center_selection(selection) -> void:
+	$Camera2D.global_position = selection.global_position
 
 func _ready() -> void:
 	generate_map(10,5)
 	populate_map()
 	spawn_player()
+
+func _on_world_tick_timeout() -> void:
 	update_world()

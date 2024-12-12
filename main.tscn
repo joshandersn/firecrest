@@ -28,7 +28,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Turn" type="Label" parent="UI/HUD"]
+[node name="Paused" type="Label" parent="UI/HUD"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -41,4 +42,10 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
-text = "Turn"
+text = "Paused"
+
+[node name="WorldTick" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="WorldTick" to="." method="_on_world_tick_timeout"]
