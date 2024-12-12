@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhokegx1ki0fl"]
+
+[ext_resource type="Script" path="res://Objects/entity.gd" id="1_e7jks"]
+[ext_resource type="Texture2D" uid="uid://dpjuimm75mv51" path="res://Assets/knight.png" id="2_1vi4u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhqge"]
+size = Vector2(15, 20)
+
+[node name="Entity" type="Node2D"]
+top_level = true
+script = ExtResource("1_e7jks")
+
+[node name="Check" type="RayCast2D" parent="."]
+position = Vector2(8, 10)
+target_position = Vector2(0, 20)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 10)
+shape = SubResource("RectangleShape2D_rhqge")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_1vi4u")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 15, 20)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://5nseyxctpxtq"]
 
-[ext_resource type="Script" path="res://Entities/tile.gd" id="1_mcmns"]
+[ext_resource type="Script" path="res://Objects/tile.gd" id="1_mcmns"]
 [ext_resource type="Texture2D" uid="uid://n4jwo4bth0qt" path="res://Assets/base.png" id="2_vsyaf"]
 
 [node name="Tile" type="Node2D" groups=["tile"]]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ResEntity" load_steps=3 format=3 uid="uid://dadd0pf1s47dg"]
+
+[ext_resource type="Script" path="res://Resources/res_entity.gd" id="1_4bijf"]
+[ext_resource type="Texture2D" uid="uid://dpjuimm75mv51" path="res://Assets/knight.png" id="1_jm6sp"]
+
+[resource]
+script = ExtResource("1_4bijf")
+tag = "Knight"
+artwork = ExtResource("1_jm6sp")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ResTile" load_steps=3 format=3 uid="uid://bekmq1bacgix4"]
+
+[ext_resource type="Script" path="res://Resources/res_tile.gd" id="1_nk4oo"]
+[ext_resource type="Texture2D" uid="uid://dbeyxlofdnnh7" path="res://Assets/stone slab.png" id="2_bqgls"]
+
+[resource]
+script = ExtResource("1_nk4oo")
+tag = "Stone Slab"
+texture = ExtResource("2_bqgls")
+temperature = 0
+humidity = 0
