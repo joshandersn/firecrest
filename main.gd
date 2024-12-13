@@ -73,6 +73,8 @@ func spawn_entity(entity_resource, make_player := false) -> void:
 				new_player.entity = entity_resource
 				new_player.refresh()
 				$Scene.add_child(new_player)
+				if make_player:
+					Game.players.append(new_player)
 				break
 
 func center_selection(selection) -> void:

@@ -1,6 +1,7 @@
 extends Button
 
 var entity: ResEntity
+signal add_to_inv
 
 func _ready() -> void:
 	if entity:
@@ -8,3 +9,7 @@ func _ready() -> void:
 		icon = entity.artwork
 	else:
 		push_warning("No Entity provided in InventoryListItem")
+
+
+func _on_pressed() -> void:
+	emit_signal("add_to_inv", entity)

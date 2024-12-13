@@ -6,6 +6,12 @@ extends CanvasLayer
 func _ready() -> void:
 	Game.ui_update.connect(update_ui)
 
+func inv_item_clicked(item) -> void:
+	Game.players[0].entity.storage.append(item)
+	Game.opened_storage_containers[0].entity.storage.erase(item)
+	Game.opened_storage_contents.erase(item)
+	update_ui()
+
 func update_ui() -> void:
 	$HUD/EntityInspect.text = str(Game.ui_inspect_entity_description)
 	$HUD/TileInspect.text = str(Game.ui_inspect_tile_description)
@@ -14,6 +20,7 @@ func update_ui() -> void:
 	for item in Game.opened_storage_contents:
 		var item_inst = inv_list_item.instantiate()
 		item_inst.entity = item
+		item_inst.add_to_inv.connect(inv_item_clicked)
 		$HUD/OpenedStorageList.add_child(item_inst)
 		$HUD/OpenedStorageList.get_child(0).grab_focus()
 	
