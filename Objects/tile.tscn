@@ -16,13 +16,8 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 15, 20)
 
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_top = -30.0
-offset_right = 39.0
-theme_override_font_sizes/font_size = 25
-text = "Tile"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 10)
 shape = SubResource("RectangleShape2D_67yhh")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

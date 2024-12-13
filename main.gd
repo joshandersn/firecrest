@@ -41,7 +41,6 @@ func generate_map(x, y) -> void:
 				new_tile.tile = stone_wall
 			new_tile.position.x = b*Game.tile_res.x
 			new_tile.position.y = a*Game.tile_res.y
-			new_tile.tile.tag = str('tile x:', b, ' y:', a)
 			print(new_tile)
 			$Scene.add_child(new_tile)
 			

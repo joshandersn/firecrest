@@ -39,3 +39,5 @@ offset_top = -13.0
 offset_right = 24.0
 theme_override_font_sizes/font_size = 10
 text = "player"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

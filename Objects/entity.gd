@@ -35,3 +35,8 @@ func _input(_event: InputEvent) -> void:
 			move.use(Vector2.LEFT)
 		elif Input.is_action_just_pressed("move_right"):
 			move.use(Vector2.RIGHT)
+
+
+func _on_mouse_entered() -> void:
+	Game.ui_inspect_entity_description = str(entity.tag)
+	Game.emit_signal("ui_update")
