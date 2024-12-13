@@ -13,11 +13,14 @@ func use(dir: Vector2) -> void:
 	if entity_check.is_colliding():
 		var entity_body = entity_check.get_collider()
 		# Interact
-		if parent.is_player:
-			if entity_body.is_in_group("entity"):
-				print(entity_body)
+		if entity_body.is_in_group("entity") and parent.is_player:
+			$"../Interact".use(entity_body)
 	elif tile_check.is_colliding():
 		var tile_body = tile_check.get_collider()
 
 		if "tile" in tile_body and !tile_body.tile.is_wall:
 				parent.position += Game.tile_res * dir
+				if parent.is_player:
+					Game.opened_storage_contents = []
+					Game.emit_signal("ui_update")
+					Game.emit_signal("center_camera", parent)

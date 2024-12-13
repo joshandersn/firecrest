@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://gxus0y4q7pjo"]
+
+[ext_resource type="Script" path="res://Objects/inventoryListItem.gd" id="1_bipjm"]
+[ext_resource type="Texture2D" uid="uid://n4jwo4bth0qt" path="res://Assets/base.png" id="1_lpcm6"]
+
+[node name="InventoryListItem" type="Button"]
+offset_right = 449.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 30
+text = "Item"
+icon = ExtResource("1_lpcm6")
+alignment = 0
+expand_icon = true
+script = ExtResource("1_bipjm")

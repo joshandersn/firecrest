@@ -7,3 +7,5 @@
 script = ExtResource("1_4bijf")
 tag = "Knight"
 artwork = ExtResource("1_jm6sp")
+health = 10
+inititive = 3

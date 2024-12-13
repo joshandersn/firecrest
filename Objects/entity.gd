@@ -14,7 +14,7 @@ func refresh() -> void:
 		$Sprite.texture = entity.artwork
 		
 func take_turn():
-	if !is_player:
+	if !is_player and entity.inititive > 0:
 		var r = rng.randf_range(0, 1)
 		if r > 0.75:
 			move.use(Vector2.UP)

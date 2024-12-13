@@ -7,3 +7,5 @@
 script = ExtResource("1_v5ojc")
 tag = "Werewolf"
 artwork = ExtResource("1_8mugo")
+health = 20
+inititive = 4

@@ -7,3 +7,5 @@
 script = ExtResource("1_lm5h6")
 tag = "Slime"
 artwork = ExtResource("1_ggb01")
+health = 3
+inititive = 1

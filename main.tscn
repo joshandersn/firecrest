@@ -39,7 +39,7 @@ anchor_bottom = 1.0
 offset_top = -333.0
 offset_right = 309.0
 grow_vertical = 0
-color = Color(0.167451, 0.167451, 0.167451, 1)
+color = Color(0.168627, 0.168627, 0.168627, 0.705882)
 
 [node name="inspectBG2" type="ColorRect" parent="UI/HUD"]
 layout_mode = 1
@@ -50,7 +50,34 @@ offset_left = 336.0
 offset_top = -333.0
 offset_right = 645.0
 grow_vertical = 0
-color = Color(0.167451, 0.167451, 0.167451, 1)
+color = Color(0.168627, 0.168627, 0.168627, 0.705882)
+
+[node name="InvBG" type="ColorRect" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -549.0
+offset_top = 27.0
+offset_right = -20.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.168627, 0.168627, 0.168627, 0.67451)
+
+[node name="OpenedStorageList" type="VBoxContainer" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -527.0
+offset_top = 42.0
+offset_right = -40.0
+offset_bottom = -48.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="TileInspect" type="RichTextLabel" parent="UI/HUD"]
 layout_mode = 1

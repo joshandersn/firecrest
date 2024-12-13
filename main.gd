@@ -9,6 +9,7 @@ extends Node2D
 @onready var chest = load("res://Entities/Chest.tres")
 @onready var slime = load("res://Entities/Slime.tres")
 @onready var knight = load("res://Entities/knight.tres")
+@onready var health_potion = load("res://Entities/HealthPotion.tres")
 
 var rng = RandomNumberGenerator.new()
 
@@ -54,21 +55,23 @@ func populate_map() -> void:
 					new_entity.entity = chest
 				else:
 					new_entity.entity = slime
+					var g = rng.randf_range(0, 1)
+					if g > 0.5:
+						new_entity.entity.storage.append(health_potion)
 				new_entity.position = object.position
 				new_entity.refresh()
 				$Scene.add_child(new_entity)
 				
-func spawn_player() -> void:
+func spawn_entity(entity_resource, make_player := false) -> void:
 	for object in $Scene.get_children():
 		if object.is_in_group("tile") and "tile" in object and !object.tile.is_wall:
 			var r = rng.randf_range(0,1)
 			var new_player = entity.instantiate()
 			if r > 0.9:
 				new_player.position = object.position
-				new_player.is_player = true
-				new_player.entity = knight
+				new_player.is_player = make_player
+				new_player.entity = entity_resource
 				new_player.refresh()
-				center_selection(new_player)
 				$Scene.add_child(new_player)
 				break
 
@@ -78,7 +81,9 @@ func center_selection(selection) -> void:
 func _ready() -> void:
 	generate_map(10,5)
 	populate_map()
-	spawn_player()
+	spawn_entity(knight, true)
+	spawn_entity(chest)
+	Game.center_camera.connect(center_selection)
 
 func _on_world_tick_timeout() -> void:
 	update_world()
