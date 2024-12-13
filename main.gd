@@ -14,7 +14,10 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 
 func _input(_event: InputEvent) -> void:
-	#debug to update world
+	
+	if Input.is_action_just_pressed("toggle_inventory"):
+		$UI.toggle_inventory_view()
+
 	if Input.is_action_just_pressed("ui_accept"):
 		#update_world()
 		pass
