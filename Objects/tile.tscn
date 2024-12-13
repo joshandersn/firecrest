@@ -8,6 +8,7 @@ size = Vector2(15, 20)
 
 [node name="Tile" type="Area2D" groups=["tile"]]
 collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_mcmns")
 
 [node name="Sprite" type="Sprite2D" parent="."]

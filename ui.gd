@@ -8,7 +8,3 @@ func _ready() -> void:
 func update_ui() -> void:
 	$HUD/EntityInspect.text = str(Game.ui_inspect_entity_description)
 	$HUD/TileInspect.text = str(Game.ui_inspect_tile_description)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
