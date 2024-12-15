@@ -10,11 +10,15 @@ func toggle_inventory_view() -> void:
 	$HUD/PlayerInvBG.visible = !$HUD/PlayerInvBG.visible
 	update_ui()
 
-func storage_item_clicked(item) -> void:
-	Game.players[0].entity.storage.erase(item)
-	Game.players[0].entity.storage.append(item)
-	Game.opened_storage_containers[0].entity.storage.erase(item)
-	Game.opened_storage_contents.erase(item)
+func storage_item_clicked(origin, item) -> void:
+	if !origin == $HUD/PlayerInvBG/PlayerStorageList:
+		Game.players[0].entity.storage.append(item)
+		Game.opened_storage_containers[0].entity.storage.erase(item)
+		Game.opened_storage_contents.erase(item)
+	else:
+		print("Item is in inventory")
+		Game.players[0].entity.wielded = item
+		
 	update_ui()
 
 func update_ui() -> void:
@@ -23,7 +27,9 @@ func update_ui() -> void:
 	update_storage_list($HUD/OpenedStorageList, Game.opened_storage_contents)
 	if Game.players:
 		var player = Game.players[0].entity
-		$HUD/PlayerInvBG/PlayerPortrait.texture = player.artwork
+		$HUD/PlayerInvBG/PlayerPortrait.texture = player.portrait
+		$HUD/PlayerPortrait.texture = player.portrait
+		$HUD/PlayerInvBG/PlayerWielded.texture = player.wielded
 		$HUD/PlayerInvBG/PlayerTags.text = str(player.tag, '\n Health: ', player.health)
 		update_storage_list($HUD/PlayerInvBG/PlayerStorageList, player.storage)
 	$HUD/StorageBG.visible = !(Game.opened_storage_contents == [])
@@ -34,6 +40,7 @@ func update_storage_list(list, contents) -> void:
 	for item in contents:
 		var item_inst = storage_list_item.instantiate()
 		item_inst.entity = item
+		item_inst.origin = list
 		item_inst.add_to_inv.connect(storage_item_clicked)
 		list.add_child(item_inst)
 		list.get_child(0).grab_focus()

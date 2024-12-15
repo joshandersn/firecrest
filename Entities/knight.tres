@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="ResEntity" load_steps=3 format=3 uid="uid://dadd0pf1s47dg"]
+[gd_resource type="Resource" script_class="ResEntity" load_steps=4 format=3 uid="uid://dadd0pf1s47dg"]
 
 [ext_resource type="Script" path="res://Resources/res_entity.gd" id="1_4bijf"]
 [ext_resource type="Texture2D" uid="uid://dpjuimm75mv51" path="res://Assets/knight.png" id="1_jm6sp"]
+[ext_resource type="Texture2D" uid="uid://lwyis5rgr46i" path="res://Assets/Knight Portrait.png" id="2_r07yx"]
 
 [resource]
 script = ExtResource("1_4bijf")
 tag = "Knight"
 artwork = ExtResource("1_jm6sp")
+portrait = ExtResource("2_r07yx")
 health = 10
+strength = 0
 inititive = 3
+storage = Array[ExtResource("1_4bijf")]([])

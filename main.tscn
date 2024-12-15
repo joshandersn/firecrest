@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cymrvhfw8glyc"]
+[gd_scene load_steps=7 format=3 uid="uid://cymrvhfw8glyc"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_y3dp2"]
 [ext_resource type="Script" path="res://game.gd" id="3_7pmk2"]
 [ext_resource type="Script" path="res://camera.gd" id="4_sfet5"]
 [ext_resource type="Script" path="res://ui.gd" id="4_tugc6"]
 [ext_resource type="Texture2D" uid="uid://n4jwo4bth0qt" path="res://Assets/base.png" id="5_0pqpv"]
+[ext_resource type="Texture2D" uid="uid://dhfc1qibf1hfj" path="res://Assets/Portrait Frame Wood.png" id="5_xrxdf"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_y3dp2")
@@ -57,6 +58,36 @@ grow_horizontal = 0
 grow_vertical = 2
 color = Color(0.168627, 0.168627, 0.168627, 0.67451)
 
+[node name="PortraitFrame" type="TextureRect" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -154.0
+offset_right = 108.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_xrxdf")
+
+[node name="PlayerPortrait" type="TextureRect" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.0
+offset_top = -147.0
+offset_right = 53.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_0pqpv")
+
 [node name="PlayerInvBG" type="ColorRect" parent="UI/HUD"]
 layout_mode = 1
 anchors_preset = 9
@@ -85,6 +116,14 @@ offset_left = 25.0
 offset_top = 26.0
 offset_right = 129.0
 offset_bottom = 165.0
+texture = ExtResource("5_0pqpv")
+
+[node name="PlayerWielded" type="TextureRect" parent="UI/HUD/PlayerInvBG"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 190.0
+offset_right = 129.0
+offset_bottom = 329.0
 texture = ExtResource("5_0pqpv")
 
 [node name="PlayerTags" type="RichTextLabel" parent="UI/HUD/PlayerInvBG"]
@@ -134,21 +173,6 @@ offset_bottom = 75.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 40
 text = "Entity"
-
-[node name="Paused" type="Label" parent="UI/HUD"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Paused"
 
 [node name="WorldTick" type="Timer" parent="."]
 wait_time = 2.0

@@ -53,21 +53,20 @@ func populate_map() -> void:
 	for object in $Scene.get_children():
 		if object.is_in_group("tile") and "tile" in object and !object.tile.is_wall:
 			var r = rng.randf_range(0,1)
-			if r > 0.8:
+			if r > 0.95:
 				var n = rng.randf_range(0, 1)
 				var new_entity = entity.instantiate()
 				var new_entity_resource: ResEntity
-				print(new_entity_resource)
-				if n > 0.7:
+				if n > 0.5:
 					new_entity_resource = slime
-				elif n > 0.2:
+				elif n > 0.4:
 					new_entity_resource = chest
-					var g = rng.randf_range(0, 1)
-					if g > 0.5:
-						new_entity_resource.storage.append(health_potion)
 				else:
 					new_entity_resource = slime
 				new_entity.entity = new_entity_resource.duplicate()
+				var g = rng.randf_range(0, 1)
+				if g > 0.5:
+					new_entity.entity.storage.append(health_potion)
 				new_entity.position = object.position
 				new_entity.refresh()
 				$Scene.add_child(new_entity)
@@ -80,7 +79,7 @@ func spawn_entity(entity_resource, make_player := false) -> void:
 			if r > 0.9:
 				new_player.position = object.position
 				new_player.is_player = make_player
-				new_player.entity = entity_resource
+				new_player.entity = entity_resource.duplicate()
 				new_player.refresh()
 				$Scene.add_child(new_player)
 				if make_player:
@@ -91,9 +90,9 @@ func center_selection(selection) -> void:
 	$Camera2D.global_position = selection.global_position
 
 func _ready() -> void:
-	generate_map(10,5)
+	generate_map(20,15)
 	populate_map()
-	spawn_entity(knight, true)
+	spawn_entity(assassin, true)
 	spawn_entity(chest)
 	Game.center_camera.connect(center_selection)
 

@@ -1,6 +1,8 @@
 extends Button
 
 var entity: ResEntity
+var origin
+
 signal add_to_inv
 
 func _ready() -> void:
@@ -12,4 +14,4 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
-	emit_signal("add_to_inv", entity)
+	emit_signal("add_to_inv", origin, entity)

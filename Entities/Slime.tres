@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="ResEntity" load_steps=3 format=3 uid="uid://7uudgr4t4dtd"]
+[gd_resource type="Resource" script_class="ResEntity" load_steps=4 format=3 uid="uid://7uudgr4t4dtd"]
 
 [ext_resource type="Texture2D" uid="uid://0qqnuha1wviy" path="res://Assets/slime.png" id="1_ggb01"]
 [ext_resource type="Script" path="res://Resources/res_entity.gd" id="1_lm5h6"]
+[ext_resource type="Texture2D" uid="uid://c7vl7nth3u4ct" path="res://Assets/Slime Portrait.png" id="2_vuj1n"]
 
 [resource]
 script = ExtResource("1_lm5h6")
 tag = "Slime"
 artwork = ExtResource("1_ggb01")
+portrait = ExtResource("2_vuj1n")
 health = 3
+strength = 0
 inititive = 1
+storage = Array[ExtResource("1_lm5h6")]([])
