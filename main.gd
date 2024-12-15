@@ -9,6 +9,8 @@ extends Node2D
 @onready var chest = load("res://Entities/Chest.tres")
 @onready var slime = load("res://Entities/Slime.tres")
 @onready var knight = load("res://Entities/knight.tres")
+@onready var assassin = load("res://Entities/Assassin.tres")
+@onready var werewolf = load("res://Entities/Werewolf.tres")
 @onready var health_potion = load("res://Entities/HealthPotion.tres")
 
 var rng = RandomNumberGenerator.new()
@@ -51,16 +53,21 @@ func populate_map() -> void:
 	for object in $Scene.get_children():
 		if object.is_in_group("tile") and "tile" in object and !object.tile.is_wall:
 			var r = rng.randf_range(0,1)
-			if r > 0.9:
+			if r > 0.8:
 				var n = rng.randf_range(0, 1)
 				var new_entity = entity.instantiate()
-				if n > 0.9:
-					new_entity.entity = chest
-				else:
-					new_entity.entity = slime
+				var new_entity_resource: ResEntity
+				print(new_entity_resource)
+				if n > 0.7:
+					new_entity_resource = slime
+				elif n > 0.2:
+					new_entity_resource = chest
 					var g = rng.randf_range(0, 1)
 					if g > 0.5:
-						new_entity.entity.storage.append(health_potion)
+						new_entity_resource.storage.append(health_potion)
+				else:
+					new_entity_resource = slime
+				new_entity.entity = new_entity_resource.duplicate()
 				new_entity.position = object.position
 				new_entity.refresh()
 				$Scene.add_child(new_entity)

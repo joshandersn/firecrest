@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cymrvhfw8glyc"]
+[gd_scene load_steps=6 format=3 uid="uid://cymrvhfw8glyc"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_y3dp2"]
 [ext_resource type="Script" path="res://game.gd" id="3_7pmk2"]
 [ext_resource type="Script" path="res://camera.gd" id="4_sfet5"]
 [ext_resource type="Script" path="res://ui.gd" id="4_tugc6"]
+[ext_resource type="Texture2D" uid="uid://n4jwo4bth0qt" path="res://Assets/base.png" id="5_0pqpv"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_y3dp2")
@@ -43,7 +44,6 @@ grow_horizontal = 2
 color = Color(0.168627, 0.168627, 0.168627, 0.705882)
 
 [node name="StorageBG" type="ColorRect" parent="UI/HUD"]
-visible = false
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -58,7 +58,6 @@ grow_vertical = 2
 color = Color(0.168627, 0.168627, 0.168627, 0.67451)
 
 [node name="PlayerInvBG" type="ColorRect" parent="UI/HUD"]
-visible = false
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -75,10 +74,27 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 18.0
-offset_top = 24.0
+offset_top = 500.0
 offset_right = 487.0
-offset_bottom = -84.0
+offset_bottom = -35.0
 grow_vertical = 2
+
+[node name="PlayerPortrait" type="TextureRect" parent="UI/HUD/PlayerInvBG"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 26.0
+offset_right = 129.0
+offset_bottom = 165.0
+texture = ExtResource("5_0pqpv")
+
+[node name="PlayerTags" type="RichTextLabel" parent="UI/HUD/PlayerInvBG"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 24.0
+offset_right = 480.0
+offset_bottom = 163.0
+theme_override_font_sizes/normal_font_size = 30
+text = "Player Tags"
 
 [node name="OpenedStorageList" type="VBoxContainer" parent="UI/HUD"]
 layout_mode = 1

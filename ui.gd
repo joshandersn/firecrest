@@ -11,6 +11,7 @@ func toggle_inventory_view() -> void:
 	update_ui()
 
 func storage_item_clicked(item) -> void:
+	Game.players[0].entity.storage.erase(item)
 	Game.players[0].entity.storage.append(item)
 	Game.opened_storage_containers[0].entity.storage.erase(item)
 	Game.opened_storage_contents.erase(item)
@@ -21,7 +22,10 @@ func update_ui() -> void:
 	$HUD/TileInspect.text = str(Game.ui_inspect_tile_description)
 	update_storage_list($HUD/OpenedStorageList, Game.opened_storage_contents)
 	if Game.players:
-		update_storage_list($HUD/PlayerInvBG/PlayerStorageList, Game.players[0].entity.storage)
+		var player = Game.players[0].entity
+		$HUD/PlayerInvBG/PlayerPortrait.texture = player.artwork
+		$HUD/PlayerInvBG/PlayerTags.text = str(player.tag, '\n Health: ', player.health)
+		update_storage_list($HUD/PlayerInvBG/PlayerStorageList, player.storage)
 	$HUD/StorageBG.visible = !(Game.opened_storage_contents == [])
 
 func update_storage_list(list, contents) -> void:
