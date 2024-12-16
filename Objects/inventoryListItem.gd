@@ -4,6 +4,7 @@ var entity: ResEntity
 var origin
 
 signal add_to_inv
+signal equip_item
 
 func _ready() -> void:
 	if entity:
@@ -11,6 +12,9 @@ func _ready() -> void:
 		icon = entity.artwork
 	else:
 		push_warning("No Entity provided in InventoryListItem")
+
+func _on_button_pressed() -> void:
+	emit_signal("equip_item", origin, entity)
 
 
 func _on_pressed() -> void:

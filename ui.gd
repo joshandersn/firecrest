@@ -16,10 +16,22 @@ func storage_item_clicked(origin, item) -> void:
 		Game.opened_storage_containers[0].entity.storage.erase(item)
 		Game.opened_storage_contents.erase(item)
 	else:
-		print("Item is in inventory")
+		print("Item is in inventory: skipped looting")
+		
+	update_ui()
+
+func equip_item(origin, item) -> void:
+	if !origin == $HUD/PlayerInvBG/PlayerStorageList:
+		storage_item_clicked(origin, item)
+		print("First addin to inv")
+		print("Item is in inventory, Equipping")
+		Game.players[0].entity.wielded = item
+	else:
+		print("Item is in inventory, Equipping")
 		Game.players[0].entity.wielded = item
 		
 	update_ui()
+	
 
 func update_ui() -> void:
 	$HUD/EntityInspect.text = str(Game.ui_inspect_entity_description)
@@ -29,7 +41,9 @@ func update_ui() -> void:
 		var player = Game.players[0].entity
 		$HUD/PlayerInvBG/PlayerPortrait.texture = player.portrait
 		$HUD/PlayerPortrait.texture = player.portrait
-		$HUD/PlayerInvBG/PlayerWielded.texture = player.wielded
+		if player.wielded:
+			$HUD/PlayerInvBG/PlayerWielded.texture = player.wielded.artwork
+			$HUD/PlayerWield.texture = player.wielded.artwork
 		$HUD/PlayerInvBG/PlayerTags.text = str(player.tag, '\n Health: ', player.health)
 		update_storage_list($HUD/PlayerInvBG/PlayerStorageList, player.storage)
 	$HUD/StorageBG.visible = !(Game.opened_storage_contents == [])
@@ -42,6 +56,7 @@ func update_storage_list(list, contents) -> void:
 		item_inst.entity = item
 		item_inst.origin = list
 		item_inst.add_to_inv.connect(storage_item_clicked)
+		item_inst.equip_item.connect(equip_item)
 		list.add_child(item_inst)
 		list.get_child(0).grab_focus()
 	
