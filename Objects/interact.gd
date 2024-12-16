@@ -12,4 +12,4 @@ func use(body) -> void:
 			if player.wielded:
 				damage += player.wielded.sharpness + player.wielded.mass
 			body.entity.health -= damage
-			print("you hit ", body.entity.tag, "(", body.entity.health, ") for ", damage, " Damage")
+			Game.emit_signal("game_log", str("you hit ", body.entity.tag, "(", body.entity.health, ") for ", damage, " Damage"))

@@ -5,6 +5,7 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Game.ui_update.connect(update_ui)
+	Game.game_log.connect(game_log)
 
 func toggle_inventory_view() -> void:
 	$HUD/PlayerInvBG.visible = !$HUD/PlayerInvBG.visible
@@ -27,7 +28,9 @@ func equip_item(origin, item) -> void:
 	else:
 		print(item.mass, " is too heavy for your strength (", Game.players[0].entity.strength, ")")
 	update_ui()
-	
+
+func game_log(message):
+	$HUD/Log.text += str("\n", message)
 
 func update_ui() -> void:
 	$HUD/EntityInspect.text = str(Game.ui_inspect_entity_description)

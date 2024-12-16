@@ -12,3 +12,4 @@ var ui_inspect_entity_title: String
 var ui_inspect_entity_description: String
 signal ui_update
 signal center_camera
+signal game_log
