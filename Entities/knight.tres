@@ -12,5 +12,6 @@ portrait = ExtResource("2_r07yx")
 health = 10
 strength = 10
 inititive = 3
-weight = 7
+mass = 15
+sharpness = 3
 storage = Array[ExtResource("1_4bijf")]([])

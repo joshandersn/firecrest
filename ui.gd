@@ -22,10 +22,10 @@ func storage_item_clicked(origin, item) -> void:
 func equip_item(origin, item) -> void:
 	if !origin == $HUD/PlayerInvBG/PlayerStorageList:
 		storage_item_clicked(origin, item)
-	if item.weight < Game.players[0].entity.strength:
+	if item.mass < Game.players[0].entity.strength:
 		Game.players[0].entity.wielded = item
 	else:
-		print(item.weight, " is too heavy for your strength (", Game.players[0].entity.strength, ")")
+		print(item.mass, " is too heavy for your strength (", Game.players[0].entity.strength, ")")
 	update_ui()
 	
 
@@ -35,12 +35,13 @@ func update_ui() -> void:
 	update_storage_list($HUD/OpenedStorageList, Game.opened_storage_contents)
 	if Game.players:
 		var player = Game.players[0].entity
+		var player_stats = str(player.tag, player.health, player.strength, player.inititive, player.wielded)
 		$HUD/PlayerInvBG/PlayerPortrait.texture = player.portrait
 		$HUD/PlayerPortrait.texture = player.portrait
 		if player.wielded:
 			$HUD/PlayerInvBG/PlayerWielded.texture = player.wielded.artwork
 			$HUD/PlayerWield.texture = player.wielded.artwork
-		$HUD/PlayerInvBG/PlayerTags.text = str(player.tag, '\n Health: ', player.health)
+		$HUD/PlayerInvBG/PlayerTags.text = player_stats
 		update_storage_list($HUD/PlayerInvBG/PlayerStorageList, player.storage)
 	$HUD/StorageBG.visible = !(Game.opened_storage_contents == [])
 
