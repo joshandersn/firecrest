@@ -29,7 +29,7 @@ func equip_item(origin, item) -> void:
 	if item.mass < Game.players[0].entity.strength:
 		Game.players[0].entity.wielded = item
 	else:
-		print(item.mass, " is too heavy for your strength (", Game.players[0].entity.strength, ")")
+		Game.emit_signal("game_log", str(item.tag, " is too heavy (", item.mass, ") to equip."))
 	update_ui()
 
 func game_log(message):
