@@ -36,7 +36,7 @@ func game_log(message) -> void:
 	$HUD/Log.text += str("\n", message)
 
 func format_entity_stats(player: ResEntity):
-	var string: String
+	var string := ""
 	var p = [
 		['Health', player.health],
 		['Mass', player.mass],

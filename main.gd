@@ -58,12 +58,14 @@ func populate_map() -> void:
 				var n = rng.randf_range(0, 1)
 				var new_entity = entity.instantiate()
 				var new_entity_resource: ResEntity
-				if n > 0.5:
+				if n > 0.75:
 					new_entity_resource = slime
-				elif n > 0.4:
+				elif n > 0.50:
 					new_entity_resource = chest
+				elif n > 0.25:
+					new_entity_resource = werewolf
 				else:
-					new_entity_resource = slime
+					new_entity_resource = assassin
 				new_entity.entity = new_entity_resource.duplicate()
 				var g = rng.randf_range(0, 1)
 				if g > 0.5:
