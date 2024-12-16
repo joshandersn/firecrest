@@ -8,6 +8,8 @@ class_name ResEntity
 
 @export var health: int
 @export var strength: int
-@export var wielded: ResEntity
 @export var inititive: int
+@export var weight: int
+
+@export var wielded: ResEntity
 @export var storage: Array[ResEntity]

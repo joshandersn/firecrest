@@ -17,19 +17,15 @@ func storage_item_clicked(origin, item) -> void:
 		Game.opened_storage_contents.erase(item)
 	else:
 		print("Item is in inventory: skipped looting")
-		
 	update_ui()
 
 func equip_item(origin, item) -> void:
 	if !origin == $HUD/PlayerInvBG/PlayerStorageList:
 		storage_item_clicked(origin, item)
-		print("First addin to inv")
-		print("Item is in inventory, Equipping")
+	if item.weight < Game.players[0].entity.strength:
 		Game.players[0].entity.wielded = item
 	else:
-		print("Item is in inventory, Equipping")
-		Game.players[0].entity.wielded = item
-		
+		print(item.weight, " is too heavy for your strength (", Game.players[0].entity.strength, ")")
 	update_ui()
 	
 
