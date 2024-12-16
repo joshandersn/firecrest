@@ -32,8 +32,21 @@ func equip_item(origin, item) -> void:
 		Game.emit_signal("game_log", str(item.tag, " is too heavy (", item.mass, ") to equip."))
 	update_ui()
 
-func game_log(message):
+func game_log(message) -> void:
 	$HUD/Log.text += str("\n", message)
+
+func format_entity_stats(player: ResEntity):
+	var string: String
+	var p = [
+		['Health', player.health],
+		['Mass', player.mass],
+		['Strength', player.strength],
+		['Sharpness', player.sharpness],
+		['Inititive', player.inititive],
+	]
+	for stat in p:
+		string += str(stat[0], ": ", stat[1], "\n")
+	return string
 
 func update_ui() -> void:
 	$HUD/EntityInspect.text = str(Game.ui_inspect_entity_description)
@@ -41,13 +54,12 @@ func update_ui() -> void:
 	update_storage_list($HUD/OpenedStorageList, Game.opened_storage_contents)
 	if Game.players:
 		var player = Game.players[0].entity
-		var player_stats = str(player.tag, player.health, player.strength, player.inititive, player.wielded)
 		$HUD/PlayerInvBG/PlayerPortrait.texture = player.portrait
 		$HUD/PlayerPortrait.texture = player.portrait
 		if player.wielded:
 			$HUD/PlayerInvBG/PlayerWielded.texture = player.wielded.artwork
 			$HUD/PlayerWield.texture = player.wielded.artwork
-		$HUD/PlayerInvBG/PlayerTags.text = player_stats
+		$HUD/PlayerInvBG/PlayerTags.text = format_entity_stats(player)
 		update_storage_list($HUD/PlayerInvBG/ScrollContainer/PlayerStorageList, player.storage)
 	$HUD/StorageBG.visible = !(Game.opened_storage_contents == [])
 
