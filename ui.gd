@@ -14,8 +14,11 @@ func toggle_inventory_view() -> void:
 func storage_item_clicked(origin, item) -> void:
 	if !origin == $HUD/PlayerInvBG/PlayerStorageList:
 		Game.players[0].entity.storage.append(item)
-		Game.opened_storage_containers[0].entity.storage.erase(item)
-		Game.opened_storage_contents.erase(item)
+		if Game.opened_storage_containers:
+			Game.opened_storage_containers[0].entity.storage.erase(item)
+			Game.opened_storage_contents.erase(item)
+		else:
+			push_warning("There is no shared world containers!")
 	else:
 		print("Item is in inventory: skipped looting")
 	update_ui()
