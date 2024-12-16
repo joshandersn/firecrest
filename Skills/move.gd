@@ -14,7 +14,7 @@ func use(dir: Vector2) -> void:
 		var entity_body = entity_check.get_collider()
 		# Interact
 		if entity_body.is_in_group("entity"):
-			$"../Interact".use(entity_body)
+			$"../Interact".use(entity_body, parent)
 	elif tile_check.is_colliding():
 		var tile_body = tile_check.get_collider()
 

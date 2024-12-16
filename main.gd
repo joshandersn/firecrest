@@ -27,10 +27,11 @@ func _input(_event: InputEvent) -> void:
 func update_world() -> void:
 	var count = 0
 	for i in $Scene.get_children():
-		if i.is_in_group("entity") and !i.is_player:
-			if "take_turn" in i:
-				count += 1
-				i.take_turn()
+		if i.is_in_group("entity"):
+			if !i.is_player:
+				if "take_turn" in i:
+					count += 1
+					i.take_turn()
 			if "refresh" in i:
 				i.refresh()
 	print(count, " Objects Updated")

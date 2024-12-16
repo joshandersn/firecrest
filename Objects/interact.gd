@@ -1,15 +1,15 @@
 extends Node
 
-func use(body) -> void:
+func use(body, user) -> void:
 	if "entity" in body:
 		if body.entity.health <= 0:
 			Game.opened_storage_contents = body.entity.storage
 			Game.opened_storage_containers.append(body)
 			Game.emit_signal("ui_update")
 		else:
-			var player = Game.players[0].entity
-			var damage = player.mass + player.sharpness
-			if player.wielded:
-				damage += player.wielded.sharpness + player.wielded.mass
+			var damage = user.entity.mass + user.entity.sharpness
+			if user.entity.wielded:
+				damage += user.entity.wielded.sharpness + user.entity.wielded.mass
 			body.entity.health -= damage
-			Game.emit_signal("game_log", str("you hit ", body.entity.tag, "(", body.entity.health, ") for ", damage, " Damage"))
+			Game.emit_signal("game_log", str(user.entity.tag, " hit ", body.entity.tag, " for ", damage, " Damage"))
+			body.refresh()

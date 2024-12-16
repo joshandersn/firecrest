@@ -202,7 +202,7 @@ offset_top = 73.0
 offset_right = 309.0
 offset_bottom = 196.0
 grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 30
 text = "Log"
 scroll_following = true
 
