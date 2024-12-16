@@ -130,16 +130,21 @@ offset_bottom = -30.0
 grow_vertical = 2
 color = Color(0.168627, 0.168627, 0.168627, 0.67451)
 
-[node name="PlayerStorageList" type="VBoxContainer" parent="UI/HUD/PlayerInvBG"]
-clip_contents = true
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/HUD/PlayerInvBG"]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 18.0
-offset_top = 500.0
-offset_right = 487.0
-offset_bottom = -35.0
+offset_top = 446.0
+offset_right = 485.0
+offset_bottom = -19.0
 grow_vertical = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="PlayerStorageList" type="VBoxContainer" parent="UI/HUD/PlayerInvBG/ScrollContainer"]
+custom_minimum_size = Vector2(467.86, 56.72)
+layout_mode = 2
 
 [node name="PlayerPortrait" type="TextureRect" parent="UI/HUD/PlayerInvBG"]
 layout_mode = 0

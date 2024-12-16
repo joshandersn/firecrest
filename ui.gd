@@ -12,7 +12,7 @@ func toggle_inventory_view() -> void:
 	update_ui()
 
 func storage_item_clicked(origin, item) -> void:
-	if !origin == $HUD/PlayerInvBG/PlayerStorageList:
+	if !origin == $HUD/PlayerInvBG/ScrollContainer/PlayerStorageList:
 		Game.players[0].entity.storage.append(item)
 		if Game.opened_storage_containers:
 			Game.opened_storage_containers[0].entity.storage.erase(item)
@@ -24,7 +24,7 @@ func storage_item_clicked(origin, item) -> void:
 	update_ui()
 
 func equip_item(origin, item) -> void:
-	if !origin == $HUD/PlayerInvBG/PlayerStorageList:
+	if !origin == $HUD/PlayerInvBG/ScrollContainer/PlayerStorageList:
 		storage_item_clicked(origin, item)
 	if item.mass < Game.players[0].entity.strength:
 		Game.players[0].entity.wielded = item
@@ -48,7 +48,7 @@ func update_ui() -> void:
 			$HUD/PlayerInvBG/PlayerWielded.texture = player.wielded.artwork
 			$HUD/PlayerWield.texture = player.wielded.artwork
 		$HUD/PlayerInvBG/PlayerTags.text = player_stats
-		update_storage_list($HUD/PlayerInvBG/PlayerStorageList, player.storage)
+		update_storage_list($HUD/PlayerInvBG/ScrollContainer/PlayerStorageList, player.storage)
 	$HUD/StorageBG.visible = !(Game.opened_storage_contents == [])
 
 func update_storage_list(list, contents) -> void:

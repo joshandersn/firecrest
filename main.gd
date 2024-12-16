@@ -93,7 +93,7 @@ func center_selection(selection) -> void:
 func _ready() -> void:
 	generate_map(20,15)
 	populate_map()
-	spawn_entity(assassin, true)
+	spawn_entity(werewolf, true)
 	spawn_entity(chest)
 	Game.center_camera.connect(center_selection)
 
