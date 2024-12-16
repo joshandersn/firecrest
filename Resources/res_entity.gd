@@ -4,6 +4,7 @@ class_name ResEntity
 
 @export var tag: String
 @export var artwork: Texture
+@export var artwork_dead := preload("res://Assets/grave.png")
 @export var portrait: Texture
 
 @export var health: int

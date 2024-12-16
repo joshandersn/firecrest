@@ -10,6 +10,7 @@
 script = ExtResource("1_rm37o")
 tag = "Chest"
 artwork = ExtResource("1_clcdv")
+artwork_dead = ExtResource("1_clcdv")
 portrait = ExtResource("2_t43y2")
 health = 0
 strength = 0

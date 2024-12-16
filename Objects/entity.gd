@@ -11,7 +11,11 @@ var rng = RandomNumberGenerator.new()
 func refresh() -> void:
 	$Label.visible = is_player
 	if entity:
-		$Sprite.texture = entity.artwork
+		if entity.health <= 0:
+			$Sprite.texture = entity.artwork_dead
+		else:
+			$Sprite.texture = entity.artwork
+			
 		
 func take_turn():
 	if !is_player and entity.inititive > 0 and entity.health > 0:
@@ -26,7 +30,7 @@ func take_turn():
 			move.use(Vector2.RIGHT)
 
 func _input(_event: InputEvent) -> void:
-	if is_player:
+	if is_player and entity.health > 0:
 		if Input.is_action_just_pressed("move_up"):
 			move.use(Vector2.UP)
 		elif Input.is_action_just_pressed("move_down"):
