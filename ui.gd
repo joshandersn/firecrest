@@ -11,14 +11,21 @@ func toggle_inventory_view() -> void:
 	$HUD/PlayerInvBG.visible = !$HUD/PlayerInvBG.visible
 	update_ui()
 
-func storage_item_clicked(origin, item) -> void:
-	if !origin == $HUD/PlayerInvBG/ScrollContainer/PlayerStorageList:
-		Game.players[0].entity.storage.append(item)
+func remove_item(origin, item) -> void:
+	if origin == $HUD/PlayerInvBG/ScrollContainer/PlayerStorageList:
+		Game.players[0].entity.storage.erase(item)
+	else:
 		if Game.opened_storage_containers:
 			Game.opened_storage_containers[0].entity.storage.erase(item)
 			Game.opened_storage_contents.erase(item)
 		else:
 			push_warning("There is no shared world containers!")
+	update_ui()
+
+func storage_item_clicked(origin, item) -> void:
+	if !origin == $HUD/PlayerInvBG/ScrollContainer/PlayerStorageList:
+		Game.players[0].entity.storage.append(item)
+		remove_item(origin, item)
 	else:
 		print("Item is in inventory: skipped looting")
 	update_ui()
@@ -31,6 +38,25 @@ func equip_item(origin, item) -> void:
 	else:
 		Game.emit_signal("game_log", str(item.tag, " is too heavy (", item.mass, ") to equip."))
 	update_ui()
+
+func eat_item(origin, item) -> void:
+	var player = Game.players[0].entity
+	if item.mass < player.strength:
+		if player.health >= player.health_max:
+			player.health = player.health_max
+			player.mass += ((player.health + item.protein) - player.health_max) / 2
+			player.protein += item.protein
+			Game.emit_signal("game_log", str(player.tag, " stomache is full, eating that ", item.tag, " put on some wieght!."))
+		else:
+			player.health += item.protein
+			if player.health >= player.health_max:
+				player.health = player.health_max
+			Game.emit_signal("game_log", str(player.tag, " consumed ", item.tag, " for ", item.protein, " health."))
+		remove_item(origin, item)
+	else:
+		Game.emit_signal("game_log", str(item.tag, " was unable to fit in ", player.tag, "'s mouth."))
+		
+	
 
 func game_log(message) -> void:
 	$HUD/Log.text += str("\n", message)
@@ -52,7 +78,7 @@ func update_ui() -> void:
 	$HUD/EntityInspect.text = str(Game.ui_inspect_entity_description)
 	$HUD/TileInspect.text = str(Game.ui_inspect_tile_description)
 	update_storage_list($HUD/OpenedStorageList, Game.opened_storage_contents)
-	if Game.players:
+	if Game.players[0]:
 		var player = Game.players[0].entity
 		$HUD/PlayerInvBG/PlayerPortrait.texture = player.portrait
 		$HUD/PlayerPortrait.texture = player.portrait
@@ -72,6 +98,7 @@ func update_storage_list(list, contents) -> void:
 		item_inst.origin = list
 		item_inst.add_to_inv.connect(storage_item_clicked)
 		item_inst.equip_item.connect(equip_item)
+		item_inst.eat_item.connect(eat_item)
 		list.add_child(item_inst)
 		list.get_child(0).grab_focus()
 	

@@ -1,17 +1,23 @@
-[gd_resource type="Resource" script_class="ResEntity" load_steps=4 format=3 uid="uid://7uudgr4t4dtd"]
+[gd_resource type="Resource" script_class="ResEntity" load_steps=5 format=3 uid="uid://7uudgr4t4dtd"]
 
 [ext_resource type="Texture2D" uid="uid://0qqnuha1wviy" path="res://Assets/slime.png" id="1_ggb01"]
 [ext_resource type="Script" path="res://Resources/res_entity.gd" id="1_lm5h6"]
+[ext_resource type="Texture2D" uid="uid://cbhq63kw4toi5" path="res://Assets/grave.png" id="2_7s5iw"]
 [ext_resource type="Texture2D" uid="uid://c7vl7nth3u4ct" path="res://Assets/Slime Portrait.png" id="2_vuj1n"]
 
 [resource]
 script = ExtResource("1_lm5h6")
 tag = "Slime"
 artwork = ExtResource("1_ggb01")
+artwork_dead = ExtResource("2_7s5iw")
 portrait = ExtResource("2_vuj1n")
 health = 3
+health_max = 3
 strength = 1
 inititive = 1
 mass = 6
 sharpness = 0
+protein = 5
+savagery = 1
+sense = 0
 storage = Array[ExtResource("1_lm5h6")]([])

@@ -1,17 +1,23 @@
-[gd_resource type="Resource" script_class="ResEntity" load_steps=4 format=3 uid="uid://bnkw247chab3f"]
+[gd_resource type="Resource" script_class="ResEntity" load_steps=5 format=3 uid="uid://bnkw247chab3f"]
 
 [ext_resource type="Texture2D" uid="uid://b0gvdqc73pkt2" path="res://Assets/assassin.png" id="1_jckcy"]
 [ext_resource type="Script" path="res://Resources/res_entity.gd" id="1_r0ggn"]
 [ext_resource type="Texture2D" uid="uid://n8q7sbj47nyh" path="res://Assets/Assassin Portrait.png" id="2_7tubw"]
+[ext_resource type="Texture2D" uid="uid://cbhq63kw4toi5" path="res://Assets/grave.png" id="2_rk0dq"]
 
 [resource]
 script = ExtResource("1_r0ggn")
 tag = "Assassin"
 artwork = ExtResource("1_jckcy")
+artwork_dead = ExtResource("2_rk0dq")
 portrait = ExtResource("2_7tubw")
 health = 5
+health_max = 5
 strength = 4
 inititive = 2
 mass = 4
 sharpness = 5
+protein = 20
+savagery = 2
+sense = 5
 storage = Array[ExtResource("1_r0ggn")]([])

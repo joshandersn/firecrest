@@ -1,15 +1,19 @@
-[gd_resource type="Resource" script_class="ResEntity" load_steps=3 format=3 uid="uid://xj3bstdgmrkf"]
+[gd_resource type="Resource" script_class="ResEntity" load_steps=4 format=3 uid="uid://xj3bstdgmrkf"]
 
 [ext_resource type="Texture2D" uid="uid://bp38figt2sdax" path="res://Assets/healthPotion.png" id="1_wjfpv"]
 [ext_resource type="Script" path="res://Resources/res_entity.gd" id="1_xp6xr"]
+[ext_resource type="Texture2D" uid="uid://cbhq63kw4toi5" path="res://Assets/grave.png" id="2_xolj0"]
 
 [resource]
 script = ExtResource("1_xp6xr")
 tag = "Health Potion"
 artwork = ExtResource("1_wjfpv")
+artwork_dead = ExtResource("2_xolj0")
 health = 5
+health_max = 5
 strength = 0
 inititive = 0
 mass = 1
 sharpness = 0
+protein = 10
 storage = Array[ExtResource("1_xp6xr")]([])

@@ -2,12 +2,12 @@ extends Node
 
 func use(body, user) -> void:
 	if "entity" in body:
-		if body.entity.health <= 0:
+		if body.entity.health <= 0 and user.is_player:
 			Game.opened_storage_contents = body.entity.storage
 			Game.opened_storage_containers.append(body)
 			Game.emit_signal("ui_update")
 			if body.entity.storage == []:
-				if user.entity.strength > body.entity.mass:
+				if user.entity.strength >= body.entity.mass:
 					user.entity.storage.append(body.entity)
 					Game.opened_storage_containers = []
 					body.queue_free()
