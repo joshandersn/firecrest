@@ -19,4 +19,6 @@ inititive = 0
 mass = 10
 sharpness = 0
 protein = 0
+savagery = 0
+sense = 0
 storage = Array[ExtResource("1_rm37o")]([ExtResource("3_2mryq"), ExtResource("4_mdwfj")])

@@ -7,6 +7,7 @@ extends Node2D
 var detected_entities: Array[Node2D]
 
 @onready var move = $Move
+@onready var sensory = $Sensory
 
 var rng = RandomNumberGenerator.new()
 
@@ -32,7 +33,6 @@ func move_randomly() -> void:
 
 var parallel_modal := false
 func move_toward_direction(target) -> void:
-	# TODO: Figure out non-diagnol movement perhaps separate x and y with with rng
 	if parallel_modal:
 		if target.position.x > position.x:
 			move.use(Vector2.RIGHT)
@@ -46,19 +46,19 @@ func move_toward_direction(target) -> void:
 			move.use(Vector2.DOWN)
 		parallel_modal = true
 
-func awareness_check() -> void:
-	pass
 	
 func take_turn():
 	if !is_player and entity.inititive > 0 and entity.health > 0:
-		if entity.savagery > 5:
+		if entity.savagery > 1:
 			# TODO: The enity will find a target and hunt it down
-			var target = Game.players[0]
-			awareness_check()
-			if target.entity.health > 0:
-				move_toward_direction(target)
-		else:
-			move_randomly()
+			var targets = sensory.get_bodies()
+			var desired_target
+			for target in targets:
+				if target.entity.protein < entity.mass:
+					desired_target = target
+			if desired_target and desired_target.entity.health > 0:
+				move_toward_direction(desired_target)
+				print(entity.tag, " sees ", desired_target.entity.tag)
 
 func _input(_event: InputEvent) -> void:
 	if is_player and entity.health > 0:

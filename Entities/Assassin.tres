@@ -19,5 +19,5 @@ mass = 4
 sharpness = 5
 protein = 20
 savagery = 2
-sense = 5
+sense = 2
 storage = Array[ExtResource("1_r0ggn")]([])
