@@ -51,14 +51,16 @@ func take_turn():
 	if !is_player and entity.inititive > 0 and entity.health > 0:
 		if entity.savagery > 1:
 			# TODO: The enity will find a target and hunt it down
-			var targets = sensory.get_bodies()
+			var targets = sensory.use()
 			var desired_target
 			for target in targets:
 				if target.entity.protein < entity.mass:
 					desired_target = target
 			if desired_target and desired_target.entity.health > 0:
 				move_toward_direction(desired_target)
-				print(entity.tag, " sees ", desired_target.entity.tag)
+				Game.game_log.emit(str(entity.tag, " has an appetite for ", desired_target.entity.tag))
+			else:
+				move_randomly()
 
 func _input(_event: InputEvent) -> void:
 	if is_player and entity.health > 0:

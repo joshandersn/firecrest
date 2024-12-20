@@ -19,5 +19,5 @@ mass = 6
 sharpness = 0
 protein = 5
 savagery = 1
-sense = 0
+sense = 1
 storage = Array[ExtResource("1_lm5h6")]([])

@@ -2,14 +2,18 @@ extends Node
 
 @onready var parent = get_parent()
 
-var sensory_instances: Array[Area2D]
-var offset = Vector2(8,10)
 var detected_bodies: Array[Node2D]
+@onready var sense_box = $"../Sense/Hitbox"
 
-func use() -> void:
-	pass
+func update() -> void:
+	sense_box.shape = RectangleShape2D.new()
+	sense_box.shape.size = Game.tile_res * parent.entity.sense
 
-func get_bodies():
+func _ready() -> void:
+	update()
+	
+func use():
+	update()
 	return detected_bodies
 	
 func clear_sensory() -> void:
