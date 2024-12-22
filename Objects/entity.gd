@@ -4,11 +4,10 @@ extends Node2D
 @export var is_player := false
 @export var player_index := 0
 
-var detected_entities: Array[Node2D]
-
 @onready var move = $Move
 @onready var sensory = $Sensory
 
+var detected_entities: Array[Node2D]
 var rng = RandomNumberGenerator.new()
 
 func refresh() -> void:

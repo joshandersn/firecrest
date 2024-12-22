@@ -34,16 +34,45 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="inspectBG" type="ColorRect" parent="UI/HUD"]
+[node name="InspectBG" type="ColorRect" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -322.5
+offset_top = 1.0
+offset_right = 324.5
+offset_bottom = 211.0
+grow_horizontal = 2
+color = Color(0.168627, 0.168627, 0.168627, 0.705882)
+
+[node name="Paused" type="ColorRect" parent="UI/HUD"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -323.0
+offset_top = 223.0
 offset_right = 324.0
-offset_bottom = 210.0
+offset_bottom = 272.0
 grow_horizontal = 2
-color = Color(0.168627, 0.168627, 0.168627, 0.705882)
+color = Color(0.673104, 0.413496, 0.24002, 0.705882)
+
+[node name="Log" type="Label" parent="UI/HUD/Paused"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -308.0
+offset_top = 6.0
+offset_right = 309.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "Paused
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StorageBG" type="ColorRect" parent="UI/HUD"]
 layout_mode = 1
@@ -223,6 +252,39 @@ offset_bottom = 75.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 40
 text = "Entity"
+
+[node name="Dialog" type="Control" parent="UI/HUD"]
+layout_mode = 1
+anchor_top = 0.757
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.439941
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scrim" type="ColorRect" parent="UI/HUD/Dialog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.823529)
+
+[node name="Log" type="RichTextLabel" parent="UI/HUD/Dialog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = 28.0
+offset_right = -43.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Text"
+scroll_following = true
 
 [node name="WorldTick" type="Timer" parent="."]
 wait_time = 2.0

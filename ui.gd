@@ -77,6 +77,7 @@ func format_entity_stats(player: ResEntity):
 func update_ui() -> void:
 	$HUD/EntityInspect.text = str(Game.ui_inspect_entity_description)
 	$HUD/TileInspect.text = str(Game.ui_inspect_tile_description)
+	$HUD/Paused.visible = !Game.real_time
 	update_storage_list($HUD/OpenedStorageList, Game.opened_storage_contents)
 	if Game.players[0]:
 		var player = Game.players[0].entity

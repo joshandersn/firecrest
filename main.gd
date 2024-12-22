@@ -21,8 +21,8 @@ func _input(_event: InputEvent) -> void:
 		$UI.toggle_inventory_view()
 
 	if Input.is_action_just_pressed("ui_accept"):
-		#update_world()
-		pass
+		Game.real_time = !Game.real_time
+		Game.emit_signal("ui_update")
 
 func update_world() -> void:
 	var count = 0
@@ -98,6 +98,9 @@ func _ready() -> void:
 	spawn_entity(knight, true)
 	spawn_entity(chest)
 	Game.center_camera.connect(center_selection)
+	Game.advance_turn.connect(update_world)
+	Game.ui_update.emit()
 
 func _on_world_tick_timeout() -> void:
-	update_world()
+	if Game.real_time:
+		update_world()

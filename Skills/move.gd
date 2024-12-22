@@ -24,3 +24,5 @@ func use(dir: Vector2) -> void:
 					Game.opened_storage_contents = []
 					Game.emit_signal("ui_update")
 					Game.emit_signal("center_camera", parent)
+					if !Game.real_time:
+						Game.emit_signal("advance_turn")
