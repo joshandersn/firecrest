@@ -11,6 +11,8 @@ var ui_inspect_tile_title: String
 var ui_inspect_tile_description: String
 var ui_inspect_entity_title: String
 var ui_inspect_entity_description: String
+var current_focused_entity: Node2D
+
 signal ui_update
 signal center_camera
 signal game_log

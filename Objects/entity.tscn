@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhokegx1ki0fl"]
+[gd_scene load_steps=8 format=3 uid="uid://dhokegx1ki0fl"]
 
 [ext_resource type="Script" path="res://Objects/entity.gd" id="1_e7jks"]
 [ext_resource type="Script" path="res://Skills/move.gd" id="3_0mojd"]
 [ext_resource type="Script" path="res://Objects/interact.gd" id="3_a4ejc"]
 [ext_resource type="Script" path="res://Objects/sensory.gd" id="4_1eewo"]
+[ext_resource type="Script" path="res://Objects/talk.gd" id="5_jeh80"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhqge"]
 size = Vector2(14, 19)
@@ -66,6 +67,9 @@ priority = 1
 position = Vector2(8, 10)
 shape = SubResource("RectangleShape2D_no7i7")
 debug_color = Color(0.992962, 0, 0.274415, 0.0431373)
+
+[node name="Talk" type="Node" parent="."]
+script = ExtResource("5_jeh80")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="area_entered" from="Sense" to="Sensory" method="_on_area_2d_area_entered"]

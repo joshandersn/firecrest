@@ -6,9 +6,11 @@ extends Node2D
 
 @onready var move = $Move
 @onready var sensory = $Sensory
+@onready var talk = $Talk
 
 var detected_entities: Array[Node2D]
 var rng = RandomNumberGenerator.new()
+
 
 func refresh() -> void:
 	$Label.visible = is_player
@@ -55,7 +57,7 @@ func take_turn():
 			for target in targets:
 				if target.entity.protein < entity.mass:
 					desired_target = target
-			if desired_target and desired_target.entity.health > 0:
+			if desired_target:
 				move_toward_direction(desired_target)
 				Game.game_log.emit(str(entity.tag, " has an appetite for ", desired_target.entity.tag))
 			else:
@@ -71,8 +73,13 @@ func _input(_event: InputEvent) -> void:
 			move.use(Vector2.LEFT)
 		elif Input.is_action_just_pressed("move_right"):
 			move.use(Vector2.RIGHT)
+		
+		if Input.is_action_just_pressed("talk"):
+			talk.use(Game.current_focused_entity)
+			
 
 
 func _on_mouse_entered() -> void:
+	Game.current_focused_entity = self
 	Game.ui_inspect_entity_description = str(entity.tag)
 	Game.emit_signal("ui_update")

@@ -20,7 +20,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("toggle_inventory"):
 		$UI.toggle_inventory_view()
 
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("pause"):
 		Game.real_time = !Game.real_time
 		Game.emit_signal("ui_update")
 

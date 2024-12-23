@@ -271,12 +271,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.823529)
 
-[node name="Log" type="RichTextLabel" parent="UI/HUD/Dialog"]
+[node name="DialogContent" type="RichTextLabel" parent="UI/HUD/Dialog"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 53.0
+offset_left = 234.0
 offset_top = 28.0
 offset_right = -43.0
 offset_bottom = -24.0
@@ -285,6 +285,14 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 40
 text = "Text"
 scroll_following = true
+
+[node name="PlayerPortrait" type="TextureRect" parent="UI/HUD/Dialog"]
+layout_mode = 1
+offset_left = 46.0
+offset_top = 29.0
+offset_right = 201.0
+offset_bottom = 236.0
+texture = ExtResource("5_0pqpv")
 
 [node name="WorldTick" type="Timer" parent="."]
 wait_time = 2.0
