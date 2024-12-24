@@ -17,9 +17,3 @@ signal ui_update
 signal center_camera
 signal game_log
 signal advance_turn
-
-#func satisfy_signals() -> void:
-	#emit_signal("advance_turn")
-	#emit_signal("ui_update")
-	#emit_signal("game_log", "hello world")
-	#emit_signal("center_camera")
