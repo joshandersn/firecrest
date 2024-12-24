@@ -23,8 +23,9 @@ func remove_item(origin, item) -> void:
 		Game.players[0].entity.storage.erase(item)
 	else:
 		if Game.opened_storage_containers:
-			Game.opened_storage_containers[0].entity.storage.erase(item)
-			Game.opened_storage_contents.erase(item)
+			if is_instance_valid(Game.opened_storage_containers[0]):
+				Game.opened_storage_containers[0].entity.storage.erase(item)
+				Game.opened_storage_contents.erase(item)
 		else:
 			push_warning("There is no shared world containers!")
 	update_ui()
@@ -53,20 +54,21 @@ func eat_item(origin, item) -> void:
 			player.health = player.health_max
 			player.mass += ((player.health + item.protein) - player.health_max) / 2
 			player.protein += item.protein
-			Game.emit_signal("game_log", str(player.tag, " stomache is full, eating that ", item.tag, " put on some wieght!."))
+			Game.emit_signal("game_log", str("[color=green]", player.tag, "[/color] stomache is full, eating that [color=green]", item.tag, "[/color] put on some wieght!."))
 		else:
 			player.health += item.protein
 			if player.health >= player.health_max:
 				player.health = player.health_max
-			Game.emit_signal("game_log", str(player.tag, " consumed ", item.tag, " for ", item.protein, " health."))
+			Game.emit_signal("game_log", str("[color=green]", player.tag, "[/color] consumed ", item.tag, " for [color=blue]", item.protein, "[/color] health."))
 		remove_item(origin, item)
 	else:
-		Game.emit_signal("game_log", str(item.tag, " was unable to fit in ", player.tag, "'s mouth."))
+		Game.emit_signal("game_log", str("[color=green]", item.tag, "[/color] was unable to fit in [color=green]", player.tag, "'s[/color] mouth."))
 		
 	
 
 func game_log(message) -> void:
-	$HUD/Log.text += str("\n", message)
+	#$HUD/Log.text += str("\n", message)
+	$HUD/Log.append_text(str("\n", message))
 
 func format_entity_stats(player: ResEntity):
 	var string := ""
@@ -110,3 +112,7 @@ func update_storage_list(list, contents) -> void:
 		list.add_child(item_inst)
 		list.get_child(0).grab_focus()
 	
+
+
+func _on_exit_pressed() -> void:
+	$HUD/Dialog.visible = false

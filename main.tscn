@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cymrvhfw8glyc"]
+[gd_scene load_steps=9 format=3 uid="uid://cymrvhfw8glyc"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_y3dp2"]
 [ext_resource type="Script" path="res://game.gd" id="3_7pmk2"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://n4jwo4bth0qt" path="res://Assets/base.png" id="5_0pqpv"]
 [ext_resource type="Texture2D" uid="uid://dbeyxlofdnnh7" path="res://Assets/stone slab.png" id="5_avo73"]
 [ext_resource type="Texture2D" uid="uid://bi5vw6bd8keou" path="res://Assets/Hand Slab.png" id="6_os0e1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5ck2"]
+bg_color = Color(0.376962, 0, 0.0286589, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_y3dp2")
@@ -242,6 +245,7 @@ offset_right = -13.5601
 offset_bottom = -17.84
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
 text = "Log"
 scroll_following = true
 
@@ -259,7 +263,6 @@ theme_override_font_sizes/normal_font_size = 40
 text = "Entity"
 
 [node name="Dialog" type="Control" parent="UI/HUD"]
-visible = false
 layout_mode = 1
 anchor_top = 0.757
 anchor_right = 1.0
@@ -289,6 +292,7 @@ offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
 text = "Text"
 scroll_following = true
 
@@ -300,8 +304,19 @@ offset_right = 201.0
 offset_bottom = 236.0
 texture = ExtResource("5_0pqpv")
 
+[node name="Exit" type="Button" parent="UI/HUD/Dialog"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = -51.0
+offset_right = 251.0
+offset_bottom = -6.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_w5ck2")
+text = "Exit"
+
 [node name="WorldTick" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
+[connection signal="pressed" from="UI/HUD/Dialog/Exit" to="UI" method="_on_exit_pressed"]
 [connection signal="timeout" from="WorldTick" to="." method="_on_world_tick_timeout"]

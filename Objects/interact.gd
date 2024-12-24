@@ -13,16 +13,16 @@ func use(body, user) -> void:
 						Game.opened_storage_containers = []
 						body.queue_free()
 					else:
-						Game.emit_signal("game_log", str(body.entity.tag, " is too heavy (", body.entity.mass, ") for ", user.entity.tag, " to pick up!"))
+						Game.emit_signal("game_log", str("[color=green]", body.entity.tag, "[/color] is too heavy (", body.entity.mass, ") for [color=green]", user.entity.tag, "[/color] to pick up!"))
 			else:
 				user.entity.storage.append(body.entity)
 				Game.players.erase(body)
 				body.queue_free()
-				Game.emit_signal("game_log", str(user.entity.tag, " has consumed ", body.entity.tag))
+				Game.emit_signal("game_log", str("[color=green]", user.entity.tag, "[/color] has consumed [color=green]", body.entity.tag, "[/color]"))
 		else:
 			var damage = user.entity.mass + user.entity.sharpness
 			if user.entity.wielded:
 				damage += user.entity.wielded.sharpness + user.entity.wielded.mass
 			body.entity.health -= damage
-			Game.emit_signal("game_log", str(user.entity.tag, " hit ", body.entity.tag, " for ", damage, " Damage"))
+			Game.emit_signal("game_log", str("[color=green]", user.entity.tag, "[/color] hit [color=green]", body.entity.tag, "[/color] for [color=red]", damage, "[/color] Damage"))
 			body.refresh()

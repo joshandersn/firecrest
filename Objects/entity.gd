@@ -59,7 +59,7 @@ func take_turn():
 					desired_target = target
 			if desired_target:
 				move_toward_direction(desired_target)
-				Game.game_log.emit(str(entity.tag, " has an appetite for ", desired_target.entity.tag))
+				Game.game_log.emit(str("[color=green]", entity.tag, "[/color] has an appetite for [color=green]", desired_target.entity.tag, "[/color]"))
 			else:
 				move_randomly()
 
