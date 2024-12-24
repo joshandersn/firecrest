@@ -6,7 +6,14 @@ extends CanvasLayer
 func _ready() -> void:
 	Game.ui_update.connect(update_ui)
 	Game.game_log.connect(game_log)
+	Game.start_conversation.connect(update_dialog_ui)
 
+func update_dialog_ui(player, conversant, content) -> void:
+	$HUD/Dialog.visible = true
+	$HUD/Dialog/DialogPortrait.texture = conversant.entity.portrait
+	$HUD/Dialog/DialogContent.text = content
+	Game.center_camera.emit(conversant)
+	
 func toggle_inventory_view() -> void:
 	$HUD/PlayerInvBG.visible = !$HUD/PlayerInvBG.visible
 	update_ui()

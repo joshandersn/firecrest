@@ -292,7 +292,7 @@ theme_override_font_sizes/normal_font_size = 40
 text = "Text"
 scroll_following = true
 
-[node name="PlayerPortrait" type="TextureRect" parent="UI/HUD/Dialog"]
+[node name="DialogPortrait" type="TextureRect" parent="UI/HUD/Dialog"]
 layout_mode = 1
 offset_left = 46.0
 offset_top = 29.0

@@ -17,3 +17,4 @@ signal ui_update
 signal center_camera
 signal game_log
 signal advance_turn
+signal start_conversation
