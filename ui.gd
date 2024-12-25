@@ -87,7 +87,7 @@ func update_ui() -> void:
 	$HUD/EntityInspect.text = str(Game.ui_inspect_entity_description)
 	$HUD/TileInspect.text = str(Game.ui_inspect_tile_description)
 	$HUD/Paused.visible = !Game.real_time
-	update_storage_list($HUD/OpenedStorageList, Game.opened_storage_contents)
+	update_storage_list($HUD/StorageBG/OpenedStorageList, Game.opened_storage_contents)
 	if Game.players.size() > 0 and is_instance_valid(Game.players[0]):
 		var player = Game.players[0].entity
 		$HUD/PlayerInvBG/PlayerPortrait.texture = player.portrait

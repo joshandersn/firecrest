@@ -50,7 +50,7 @@ func move_toward_direction(target) -> void:
 	
 func take_turn():
 	if !is_player and entity.inititive > 0 and entity.health > 0:
-		if entity.savagery > 1:
+		if entity.savagery >= 1:
 			# TODO: The enity will find a target and hunt it down
 			var targets = sensory.use()
 			var desired_target
