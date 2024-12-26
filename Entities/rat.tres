@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ResEntity" load_steps=4 format=3 uid="uid://7e8s2wq0syme"]
+
+[ext_resource type="Texture2D" uid="uid://cbhq63kw4toi5" path="res://Assets/grave.png" id="1_sb5ex"]
+[ext_resource type="Texture2D" uid="uid://b0rvs6vlqxv6p" path="res://Assets/rat.png" id="1_xk0rh"]
+[ext_resource type="Script" path="res://Resources/res_entity.gd" id="2_hpfia"]
+
+[resource]
+script = ExtResource("2_hpfia")
+tag = "Rat"
+artwork = ExtResource("1_xk0rh")
+artwork_dead = ExtResource("1_sb5ex")
+health = 1
+health_max = 1
+strength = 1
+inititive = 1
+mass = 1
+sharpness = 1
+protein = 2
+savagery = 2
+sense = 5
+storage = Array[ExtResource("2_hpfia")]([])

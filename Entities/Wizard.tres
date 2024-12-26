@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ResEntity" load_steps=5 format=3 uid="uid://gisjknl5he8q"]
+
+[ext_resource type="Texture2D" uid="uid://u6tl41jyyiru" path="res://Assets/wizard.png" id="1_hwvxg"]
+[ext_resource type="Texture2D" uid="uid://cbhq63kw4toi5" path="res://Assets/grave.png" id="1_k086u"]
+[ext_resource type="Script" path="res://Resources/res_entity.gd" id="2_aplh3"]
+[ext_resource type="Texture2D" uid="uid://bfdh7x8cwn1pf" path="res://Assets/wizard portrait.png" id="3_1jvhw"]
+
+[resource]
+script = ExtResource("2_aplh3")
+tag = "Wizard"
+artwork = ExtResource("1_hwvxg")
+artwork_dead = ExtResource("1_k086u")
+portrait = ExtResource("3_1jvhw")
+health = 5
+health_max = 5
+strength = 3
+inititive = 3
+mass = 4
+sharpness = 1
+protein = 3
+savagery = 1
+sense = 10
+storage = Array[ExtResource("2_aplh3")]([])

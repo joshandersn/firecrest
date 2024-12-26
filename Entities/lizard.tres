@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ResEntity" load_steps=4 format=3 uid="uid://bmurenvammway"]
+
+[ext_resource type="Texture2D" uid="uid://cl30hli1rsp80" path="res://Assets/lizard.png" id="1_nhpb7"]
+[ext_resource type="Texture2D" uid="uid://cbhq63kw4toi5" path="res://Assets/grave.png" id="2_i2xha"]
+[ext_resource type="Script" path="res://Resources/res_entity.gd" id="3_q07mu"]
+
+[resource]
+script = ExtResource("3_q07mu")
+tag = "Lizard"
+artwork = ExtResource("1_nhpb7")
+artwork_dead = ExtResource("2_i2xha")
+health = 5
+health_max = 5
+strength = 3
+inititive = 2
+mass = 4
+sharpness = 3
+protein = 6
+savagery = 3
+sense = 5
+storage = Array[ExtResource("3_q07mu")]([])

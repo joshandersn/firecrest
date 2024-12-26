@@ -11,6 +11,9 @@ extends Node2D
 @onready var knight = load("res://Entities/knight.tres")
 @onready var assassin = load("res://Entities/Assassin.tres")
 @onready var werewolf = load("res://Entities/Werewolf.tres")
+@onready var wizard = load("res://Entities/Wizard.tres")
+@onready var rat = load("res://Entities/rat.tres")
+@onready var lizard = load("res://Entities/lizard.tres")
 @onready var health_potion = load("res://Entities/HealthPotion.tres")
 
 var rng = RandomNumberGenerator.new()
@@ -58,12 +61,14 @@ func populate_map() -> void:
 				var n = rng.randf_range(0, 1)
 				var new_entity = entity.instantiate()
 				var new_entity_resource: ResEntity
-				if n > 0.75:
+				if n > 0.80:
 					new_entity_resource = slime
-				elif n > 0.50:
+				elif n > 0.60:
 					new_entity_resource = chest
-				elif n > 0.25:
-					new_entity_resource = werewolf
+				elif n > 0.40:
+					new_entity_resource = rat
+				elif n > 0.20:
+					new_entity_resource = lizard
 				else:
 					new_entity_resource = assassin
 				new_entity.entity = new_entity_resource.duplicate()
