@@ -8,11 +8,16 @@
 [resource]
 script = ExtResource("1_lm5h6")
 tag = "Slime"
+lore = "Amorphus creature made of potent bacteria. It eats anything it can disolve that is if it's dinner doesn't escape."
 artwork = ExtResource("1_ggb01")
 artwork_dead = ExtResource("2_7s5iw")
 portrait = ExtResource("2_vuj1n")
 health = 3
 health_max = 3
+armor = 0
+armor_max = 0
+soul = 0
+soul_max = 0
 strength = 1
 inititive = 1
 mass = 6

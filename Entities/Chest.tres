@@ -9,11 +9,16 @@
 [resource]
 script = ExtResource("1_rm37o")
 tag = "Chest"
+lore = "The humble wooden chest sits quietly to itself. What's inside his head?"
 artwork = ExtResource("1_clcdv")
 artwork_dead = ExtResource("1_clcdv")
 portrait = ExtResource("2_t43y2")
 health = 0
 health_max = 0
+armor = 0
+armor_max = 0
+soul = 0
+soul_max = 0
 strength = 0
 inititive = 0
 mass = 10

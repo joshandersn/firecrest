@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ResEntity" load_steps=3 format=3 uid="uid://dqhxjn4hwosop"]
+
+[ext_resource type="Texture2D" uid="uid://i73le8f8c7ut" path="res://Assets/flower.png" id="1_47dog"]
+[ext_resource type="Script" path="res://Resources/res_entity.gd" id="2_wpxef"]
+
+[resource]
+script = ExtResource("2_wpxef")
+tag = "Yellow Weed"
+lore = "Smells awful when wet. These weeds provide a small amount on nutreints, for animals at least."
+artwork = ExtResource("1_47dog")
+artwork_dead = ExtResource("1_47dog")
+health = 0
+health_max = 0
+armor = 0
+armor_max = 0
+soul = 0
+soul_max = 0
+strength = 0
+inititive = 0
+mass = 0
+sharpness = 0
+protein = 2
+savagery = 0
+sense = 0
+storage = Array[ExtResource("2_wpxef")]([])

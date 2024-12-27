@@ -1,18 +1,24 @@
-[gd_resource type="Resource" script_class="ResEntity" load_steps=5 format=3 uid="uid://dadd0pf1s47dg"]
+[gd_resource type="Resource" script_class="ResEntity" load_steps=6 format=3 uid="uid://dadd0pf1s47dg"]
 
 [ext_resource type="Script" path="res://Resources/res_entity.gd" id="1_4bijf"]
 [ext_resource type="Texture2D" uid="uid://dpjuimm75mv51" path="res://Assets/knight.png" id="1_jm6sp"]
 [ext_resource type="Texture2D" uid="uid://cbhq63kw4toi5" path="res://Assets/grave.png" id="2_j61h0"]
 [ext_resource type="Texture2D" uid="uid://lwyis5rgr46i" path="res://Assets/Knight Portrait.png" id="2_r07yx"]
+[ext_resource type="Resource" uid="uid://d14aswbb7yvni" path="res://Entities/Sword.tres" id="5_l4jqm"]
 
 [resource]
 script = ExtResource("1_4bijf")
 tag = "Knight"
+lore = "The kight is safe inside his steel shell from the dangers he may face. Such expensive armor is only attainable by men who are truly dedicated to his tasks."
 artwork = ExtResource("1_jm6sp")
 artwork_dead = ExtResource("2_j61h0")
 portrait = ExtResource("2_r07yx")
 health = 10
 health_max = 10
+armor = 0
+armor_max = 0
+soul = 0
+soul_max = 0
 strength = 10
 inititive = 3
 mass = 15
@@ -20,4 +26,5 @@ sharpness = 3
 protein = 15
 savagery = 0
 sense = 2
+wielded = ExtResource("5_l4jqm")
 storage = Array[ExtResource("1_4bijf")]([])

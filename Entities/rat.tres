@@ -7,15 +7,20 @@
 [resource]
 script = ExtResource("2_hpfia")
 tag = "Rat"
+lore = "A classic pest. how can you top this?"
 artwork = ExtResource("1_xk0rh")
 artwork_dead = ExtResource("1_sb5ex")
 health = 1
 health_max = 1
+armor = 0
+armor_max = 0
+soul = 0
+soul_max = 0
 strength = 1
 inititive = 1
 mass = 1
 sharpness = 1
-protein = 2
+protein = 4
 savagery = 2
 sense = 5
 storage = Array[ExtResource("2_hpfia")]([])

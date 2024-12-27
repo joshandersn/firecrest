@@ -8,11 +8,16 @@
 [resource]
 script = ExtResource("1_v5ojc")
 tag = "Werewolf"
+lore = "Once a normal human being now driven mad with beastly desires. This beast is still considered to contain a soul in which one will bear the sin of murder."
 artwork = ExtResource("1_8mugo")
 artwork_dead = ExtResource("2_o5rrq")
 portrait = ExtResource("2_xi1hv")
 health = 20
 health_max = 20
+armor = 0
+armor_max = 0
+soul = 0
+soul_max = 0
 strength = 50
 inititive = 4
 mass = 20

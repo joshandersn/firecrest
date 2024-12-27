@@ -8,11 +8,16 @@
 [resource]
 script = ExtResource("1_r0ggn")
 tag = "Assassin"
+lore = "Driven by the returning profit and ego earned from delving so deep in the dungeon. The Assassin hunts high value targets and won't care for mindless beasts."
 artwork = ExtResource("1_jckcy")
 artwork_dead = ExtResource("2_rk0dq")
 portrait = ExtResource("2_7tubw")
 health = 5
 health_max = 5
+armor = 0
+armor_max = 0
+soul = 0
+soul_max = 0
 strength = 4
 inititive = 2
 mass = 4

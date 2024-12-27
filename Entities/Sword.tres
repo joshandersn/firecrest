@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ResEntity" load_steps=3 format=3 uid="uid://d14aswbb7yvni"]
+
+[ext_resource type="Texture2D" uid="uid://cm2u0arwsfbmg" path="res://Assets/sword.png" id="1_25jw1"]
+[ext_resource type="Script" path="res://Resources/res_entity.gd" id="2_ljpt7"]
+
+[resource]
+script = ExtResource("2_ljpt7")
+tag = "Sword"
+lore = "Heavy hunk of sharp metal. Able to slice anything softer than hardened leather. A tool as old as chivalry."
+artwork = ExtResource("1_25jw1")
+artwork_dead = ExtResource("1_25jw1")
+health = 0
+health_max = 0
+armor = 0
+armor_max = 0
+soul = 0
+soul_max = 0
+strength = 0
+inititive = 0
+mass = 5
+sharpness = 10
+protein = 0
+savagery = 0
+sense = 0
+storage = Array[ExtResource("2_ljpt7")]([])

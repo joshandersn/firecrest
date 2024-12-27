@@ -8,11 +8,16 @@
 [resource]
 script = ExtResource("2_aplh3")
 tag = "Wizard"
+lore = "Wizards offen inhabit bodies not originally theirs. When delving into the deep, possessing an orb in a cloak is less risky with a rich desire for objects of power."
 artwork = ExtResource("1_hwvxg")
 artwork_dead = ExtResource("1_k086u")
 portrait = ExtResource("3_1jvhw")
 health = 5
 health_max = 5
+armor = 0
+armor_max = 0
+soul = 0
+soul_max = 0
 strength = 3
 inititive = 3
 mass = 4

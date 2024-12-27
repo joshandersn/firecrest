@@ -7,13 +7,20 @@
 [resource]
 script = ExtResource("1_xp6xr")
 tag = "Health Potion"
+lore = "The contents taste like fine acidic dirt."
 artwork = ExtResource("1_wjfpv")
 artwork_dead = ExtResource("2_xolj0")
 health = 5
 health_max = 5
+armor = 0
+armor_max = 0
+soul = 0
+soul_max = 0
 strength = 0
 inititive = 0
 mass = 1
 sharpness = 0
 protein = 10
+savagery = 0
+sense = 0
 storage = Array[ExtResource("1_xp6xr")]([])

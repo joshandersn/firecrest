@@ -55,7 +55,7 @@ func take_turn():
 			var targets = sensory.use()
 			var desired_target
 			for target in targets:
-				if target.entity.protein < entity.mass:
+				if target.entity.mass < entity.mass:
 					desired_target = target
 			if desired_target:
 				move_toward_direction(desired_target)

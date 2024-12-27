@@ -7,10 +7,15 @@
 [resource]
 script = ExtResource("3_q07mu")
 tag = "Lizard"
+lore = "The slimy reptile squirms about. His tounge sniffing out the insects and rotends he craves. Slimy creatures are always bigger where the sun is absent."
 artwork = ExtResource("1_nhpb7")
 artwork_dead = ExtResource("2_i2xha")
 health = 5
 health_max = 5
+armor = 0
+armor_max = 0
+soul = 0
+soul_max = 0
 strength = 3
 inititive = 2
 mass = 4
