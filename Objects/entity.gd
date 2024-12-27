@@ -55,8 +55,11 @@ func take_turn():
 			var targets = sensory.use()
 			var desired_target
 			for target in targets:
-				if target.entity.mass < entity.mass:
+				if entity.savagery >= 5:
 					desired_target = target
+				else:
+					if target.entity.mass < entity.mass:
+						desired_target = target
 			if desired_target:
 				move_toward_direction(desired_target)
 				Game.game_log.emit(str("[color=green]", entity.tag, "[/color] has an appetite for [color=green]", desired_target.entity.tag, "[/color]"))

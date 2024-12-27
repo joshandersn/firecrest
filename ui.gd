@@ -42,7 +42,11 @@ func equip_item(origin, item) -> void:
 	if !origin == $HUD/PlayerInvBG/ScrollContainer/PlayerStorageList:
 		storage_item_clicked(origin, item)
 	if item.mass < Game.players[0].entity.strength:
-		Game.players[0].entity.wielded = item
+		if origin == $HUD/PlayerInvBG/ScrollContainer/PlayerStorageList:
+			remove_item(origin, item)
+			if Game.players[0].entity.wielded:
+				Game.players[0].entity.storage.append(Game.players[0].entity.wielded)
+			Game.players[0].entity.wielded = item
 	else:
 		Game.emit_signal("game_log", str(item.tag, " is too heavy (", item.mass, ") to equip."))
 	update_ui()
